@@ -1,0 +1,491 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Норд — кофейня</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,600;1,400&family=Inter:wght@300;400;500&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="style.css">
+</head>
+<body>
+
+<!-- SNOW CANVAS -->
+<canvas id="snow-canvas"></canvas>
+
+<!-- HEADER -->
+<header id="header">
+  <div class="header-inner">
+    <a href="#home" class="logo">
+      <span class="logo-icon">❄</span>
+      <span class="logo-text">Норд</span>
+    </a>
+    <nav class="nav" id="nav">
+      <a href="#home">Главная</a>
+      <a href="#menu">Меню</a>
+      <a href="#about">О нас</a>
+      <a href="#contacts">Контакты</a>
+    </nav>
+    <div class="header-right">
+      <button class="burger" id="burger" aria-label="Меню">
+        <span></span><span></span><span></span>
+      </button>
+    </div>
+  </div>
+</header>
+
+<!-- MOBILE NAV -->
+<div class="mobile-nav" id="mobile-nav">
+  <a href="#home" class="m-nav-link">Главная</a>
+  <a href="#menu" class="m-nav-link">Меню</a>
+  <a href="#about" class="m-nav-link">О нас</a>
+  <a href="#contacts" class="m-nav-link">Контакты</a>
+</div>
+
+<!-- HERO -->
+<section class="hero" id="home">
+  <div class="hero-bg">
+    <img src="hero_bg.jpg" alt="Кофейня Норд" id="hero-img">
+  </div>
+  <div class="hero-overlay"></div>
+  <div class="hero-content">
+    <p class="hero-eyebrow">Кофейня с атмосферой севера</p>
+    <h1 class="hero-title">Тепло<br><em>в каждой чашке</em></h1>
+    <p class="hero-sub">Авторский кофе, домашняя выпечка и уютная атмосфера.<br>Саранск, Транспортная ул., 11</p>
+    <div class="hero-btns">
+      <a href="#menu" class="btn-primary">Смотреть меню</a>
+      <a href="#contacts" class="btn-outline">Забронировать стол</a>
+    </div>
+  </div>
+</section>
+
+<!-- MENU -->
+<section id="menu" class="products-section">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-label">Наше меню</p>
+      <h2>Всё для вашего уюта</h2>
+    </div>
+
+    <div class="filter-bar">
+      <button class="filter-btn active" data-filter="all">Всё</button>
+      <button class="filter-btn" data-filter="coffee">Кофе</button>
+      <button class="filter-btn" data-filter="dessert">Десерты</button>
+      <button class="filter-btn" data-filter="breakfast">Завтраки</button>
+      <button class="filter-btn" data-filter="drinks">Напитки</button>
+      <button class="filter-btn" data-filter="snacks">Закуски</button>
+      <button class="filter-btn" data-filter="cakes">Торты</button>
+    </div>
+
+    <div class="products-grid" id="menu-grid">
+      <!-- Кофе -->
+      <div class="product-card" data-category="coffee">
+        <div class="product-img" style="background-image:url('espresso.jpg')">
+          <span class="card-tag">Кофе</span>
+        </div>
+        <div class="product-info">
+          <h3>Эспрессо</h3>
+          <p>Крепкий классический эспрессо из зёрен арабики</p>
+          <span class="price">180 ₽</span>
+        </div>
+      </div>
+      <div class="product-card" data-category="coffee">
+        <div class="product-img" style="background-image:url('cappuccino.jpg')">
+          <span class="card-tag">Кофе</span>
+        </div>
+        <div class="product-info">
+          <h3>Капучино</h3>
+          <p>Нежный капучино с бархатистой молочной пенкой</p>
+          <span class="price">260 ₽</span>
+        </div>
+      </div>
+      <div class="product-card" data-category="coffee">
+        <div class="product-img" style="background-image:url('latte.jpg')">
+          <span class="card-tag">Кофе</span>
+        </div>
+        <div class="product-info">
+          <h3>Латте</h3>
+          <p>Мягкий кофе с большим количеством молока</p>
+          <span class="price">280 ₽</span>
+        </div>
+      </div>
+      <div class="product-card" data-category="coffee">
+        <div class="product-img" style="background-image:url('flat_white.jpg')">
+          <span class="card-tag">Кофе</span>
+        </div>
+        <div class="product-info">
+          <h3>Флэт уайт</h3>
+          <p>Двойной эспрессо с небольшим количеством молока</p>
+          <span class="price">290 ₽</span>
+        </div>
+      </div>
+      <div class="product-card" data-category="coffee">
+        <div class="product-img" style="background-image:url('raf.jpg')">
+          <span class="card-tag">Кофе</span>
+        </div>
+        <div class="product-info">
+          <h3>Раф кофе</h3>
+          <p>Кофе со сливками и ванильным сахаром</p>
+          <span class="price">320 ₽</span>
+        </div>
+      </div>
+      <div class="product-card" data-category="coffee">
+        <div class="product-img" style="background-image:url('americano.jpg')">
+          <span class="card-tag">Кофе</span>
+        </div>
+        <div class="product-info">
+          <h3>Американо</h3>
+          <p>Эспрессо разбавленный горячей водой</p>
+          <span class="price">200 ₽</span>
+        </div>
+      </div>
+      <!-- Десерты -->
+      <div class="product-card" data-category="dessert">
+        <div class="product-img" style="background-image:url('tiramisu.jpg')">
+          <span class="card-tag">Десерт</span>
+        </div>
+        <div class="product-info">
+          <h3>Тирамису</h3>
+          <p>Классический итальянский десерт с маскарпоне</p>
+          <span class="price">380 ₽</span>
+        </div>
+      </div>
+      <div class="product-card" data-category="dessert">
+        <div class="product-img" style="background-image:url('brownie.jpg')">
+          <span class="card-tag">Десерт</span>
+        </div>
+        <div class="product-info">
+          <h3>Брауни</h3>
+          <p>Тёплый шоколадный брауни со шариком мороженого</p>
+          <span class="price">340 ₽</span>
+        </div>
+      </div>
+      <div class="product-card" data-category="dessert">
+        <div class="product-img" style="background-image:url('cheesecake.jpg')">
+          <span class="card-tag">Десерт</span>
+        </div>
+        <div class="product-info">
+          <h3>Чизкейк нью-йорк</h3>
+          <p>Нью-йоркский чизкейк с ягодным соусом</p>
+          <span class="price">360 ₽</span>
+        </div>
+      </div>
+      <div class="product-card" data-category="dessert">
+        <div class="product-img" style="background-image:url('waffles.jpg')">
+          <span class="card-tag">Десерт</span>
+        </div>
+        <div class="product-info">
+          <h3>Вафли с мороженым</h3>
+          <p>Бельгийские вафли с шариком ванильного мороженого</p>
+          <span class="price">390 ₽</span>
+        </div>
+      </div>
+      <!-- Завтраки -->
+      <div class="product-card" data-category="breakfast">
+        <div class="product-img" style="background-image:url('eggs_benedict.jpg')">
+          <span class="card-tag">Завтрак</span>
+        </div>
+        <div class="product-info">
+          <h3>Яйца бенедикт</h3>
+          <p>Яйца пашот с голландским соусом на тосте</p>
+          <span class="price">480 ₽</span>
+        </div>
+      </div>
+      <div class="product-card" data-category="breakfast">
+        <div class="product-img" style="background-image:url('avocado_toast.jpg')">
+          <span class="card-tag">Завтрак</span>
+        </div>
+        <div class="product-info">
+          <h3>Авокадо тост</h3>
+          <p>Тост с авокадо, яйцом пашот и микрозеленью</p>
+          <span class="price">420 ₽</span>
+        </div>
+      </div>
+      <div class="product-card" data-category="breakfast">
+        <div class="product-img" style="background-image:url('syrniki.jpg')">
+          <span class="card-tag">Завтрак</span>
+        </div>
+        <div class="product-info">
+          <h3>Сырники со сметаной</h3>
+          <p>Пышные творожные сырники со свежими ягодами</p>
+          <span class="price">360 ₽</span>
+        </div>
+      </div>
+      <div class="product-card" data-category="breakfast">
+        <div class="product-img" style="background-image:url('granola.jpg')">
+          <span class="card-tag">Завтрак</span>
+        </div>
+        <div class="product-info">
+          <h3>Гранола с йогуртом</h3>
+          <p>Домашняя гранола с греческим йогуртом и ягодами</p>
+          <span class="price">320 ₽</span>
+        </div>
+      </div>
+      <!-- Напитки -->
+      <div class="product-card" data-category="drinks">
+        <div class="product-img" style="background-image:url('matcha.jpg')">
+          <span class="card-tag">Напиток</span>
+        </div>
+        <div class="product-info">
+          <h3>Матча латте</h3>
+          <p>Японский зелёный чай матча с молоком</p>
+          <span class="price">300 ₽</span>
+        </div>
+      </div>
+      <div class="product-card" data-category="drinks">
+        <div class="product-img" style="background-image:url('cocoa.jpg')">
+          <span class="card-tag">Напиток</span>
+        </div>
+        <div class="product-info">
+          <h3>Какао</h3>
+          <p>Насыщенное какао на молоке с маршмеллоу</p>
+          <span class="price">260 ₽</span>
+        </div>
+      </div>
+      <div class="product-card" data-category="drinks">
+        <div class="product-img" style="background-image:url('orange_juice.jpg')">
+          <span class="card-tag">Напиток</span>
+        </div>
+        <div class="product-info">
+          <h3>Апельсиновый фреш</h3>
+          <p>Свежевыжатый апельсиновый сок</p>
+          <span class="price">280 ₽</span>
+        </div>
+      </div>
+      <div class="product-card" data-category="drinks">
+        <div class="product-img" style="background-image:url('tea.jpg')">
+          <span class="card-tag">Напиток</span>
+        </div>
+        <div class="product-info">
+          <h3>Чай ассам</h3>
+          <p>Крепкий индийский чай в чайнике</p>
+          <span class="price">220 ₽</span>
+        </div>
+      </div>
+      <!-- Закуски -->
+      <div class="product-card" data-category="snacks">
+        <div class="product-img" style="background-image:url('croissant_salmon.jpg')">
+          <span class="card-tag">Закуска</span>
+        </div>
+        <div class="product-info">
+          <h3>Круассан с лососем</h3>
+          <p>Маслянистый круассан с лососем и сливочным сыром</p>
+          <span class="price">420 ₽</span>
+        </div>
+      </div>
+      <div class="product-card" data-category="snacks">
+        <div class="product-img" style="background-image:url('sandwich.jpg')">
+          <span class="card-tag">Закуска</span>
+        </div>
+        <div class="product-info">
+          <h3>Сэндвич с индейкой</h3>
+          <p>Сэндвич с индейкой, авокадо и свежими овощами</p>
+          <span class="price">380 ₽</span>
+        </div>
+      </div>
+      <div class="product-card" data-category="snacks">
+        <div class="product-img" style="background-image:url('bruschetta.jpg')">
+          <span class="card-tag">Закуска</span>
+        </div>
+        <div class="product-info">
+          <h3>Брускетта томат</h3>
+          <p>Хрустящий хлеб с томатами и базиликом</p>
+          <span class="price">290 ₽</span>
+        </div>
+      </div>
+      <div class="product-card" data-category="snacks">
+        <div class="product-img" style="background-image:url('soup.jpg')">
+          <span class="card-tag">Закуска</span>
+        </div>
+        <div class="product-info">
+          <h3>Суп дня</h3>
+          <p>Суп по рецепту шефа, уточняйте у официанта</p>
+          <span class="price">320 ₽</span>
+        </div>
+      </div>
+      <!-- Торты -->
+      <div class="product-card" data-category="cakes">
+        <div class="product-img" style="background-image:url('medovik.jpg')">
+          <span class="card-tag">Торт</span>
+        </div>
+        <div class="product-info">
+          <h3>Медовик</h3>
+          <p>Нежный медовый торт со сметанным кремом</p>
+          <span class="price">350 ₽</span>
+        </div>
+      </div>
+      <div class="product-card" data-category="cakes">
+        <div class="product-img" style="background-image:url('carrot_cake.jpg')">
+          <span class="card-tag">Торт</span>
+        </div>
+        <div class="product-info">
+          <h3>Морковный торт</h3>
+          <p>Классический морковный торт с кремом чиз</p>
+          <span class="price">370 ₽</span>
+        </div>
+      </div>
+      <div class="product-card" data-category="cakes">
+        <div class="product-img" style="background-image:url('fondant.jpg')">
+          <span class="card-tag">Торт</span>
+        </div>
+        <div class="product-info">
+          <h3>Шоколадный фондан</h3>
+          <p>Горячий шоколадный кекс с жидкой начинкой</p>
+          <span class="price">420 ₽</span>
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- ABOUT -->
+<section id="about" class="about-section">
+  <div class="container">
+    <div class="about-grid">
+      <div class="about-img-wrap">
+        <img src="about_us.jpg" alt="О нас" class="about-img">
+        <div class="about-badge">с 2026 года</div>
+      </div>
+      <div class="about-text">
+        <p class="section-label">О нас</p>
+        <h2>Мы создаём атмосферу,<br><em>в которую хочется возвращаться</em></h2>
+        <p>Кофейня «Норд» — это место, где холодный саранский день становится уютным. Мы варим авторский кофе из отборных зёрен и готовим домашнюю выпечку каждое утро.</p>
+        <p>У нас нет места суете. Только тихая музыка, тёплый свет и чашка идеального кофе в твоих руках.</p>
+        <div class="about-facts">
+          <div class="fact"><span class="fact-num">25+</span><span class="fact-label">позиций в меню</span></div>
+          <div class="fact"><span class="fact-num">100%</span><span class="fact-label">свежие продукты</span></div>
+          <div class="fact"><span class="fact-num">7</span><span class="fact-label">дней в неделю</span></div>
+        </div>
+        <a href="#contacts" class="btn-primary">Забронировать стол</a>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- CONTACTS -->
+<section id="contacts" class="contacts-section">
+  <div class="container">
+    <div class="section-header">
+      <p class="section-label">Контакты</p>
+      <h2>Забронируйте стол</h2>
+    </div>
+    <div class="contacts-grid">
+      <div class="contact-info">
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fas fa-map-marker-alt"></i></div>
+          <div><h4>Адрес</h4><p>г. Саранск, Транспортная ул., 11</p></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fas fa-phone"></i></div>
+          <div><h4>Телефон</h4><p>+7 (927) 000-00-00</p></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fas fa-envelope"></i></div>
+          <div><h4>Email</h4><p>nord.coffee@mail.ru</p></div>
+        </div>
+        <div class="contact-item">
+          <div class="contact-icon"><i class="fas fa-clock"></i></div>
+          <div><h4>Режим работы</h4><p>Пн–Пт: 8:00–22:00</p><p>Сб–Вс: 8:00–23:00</p></div>
+        </div>
+      </div>
+      <div class="order-form-wrap">
+        <h3>Бронь стола</h3>
+        <form id="reservationForm">
+          <div class="form-group">
+            <label for="name">Ваше имя *</label>
+            <input type="text" id="name" required placeholder="Иван Иванов">
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="phone">Телефон *</label>
+              <input type="tel" id="phone" required placeholder="+7 (999) 123-45-67">
+            </div>
+            <div class="form-group">
+              <label for="guests">Гостей *</label>
+              <select id="guests" required>
+                <option value="1">1 гость</option>
+                <option value="2" selected>2 гостя</option>
+                <option value="3">3 гостя</option>
+                <option value="4">4 гостя</option>
+                <option value="5">5 гостей</option>
+                <option value="6">6 гостей</option>
+                <option value="7">7 гостей</option>
+                <option value="8">8+ гостей</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="email">Email *</label>
+            <input type="email" id="email" required placeholder="example@mail.ru">
+          </div>
+          <div class="form-row">
+            <div class="form-group">
+              <label for="res-date">Дата *</label>
+              <input type="date" id="res-date" required>
+            </div>
+            <div class="form-group">
+              <label for="res-time">Время *</label>
+              <select id="res-time" required>
+                <option value="">Выберите</option>
+                <option value="08:00">08:00</option>
+                <option value="09:00">09:00</option>
+                <option value="10:00">10:00</option>
+                <option value="11:00">11:00</option>
+                <option value="12:00">12:00</option>
+                <option value="13:00">13:00</option>
+                <option value="14:00">14:00</option>
+                <option value="15:00">15:00</option>
+                <option value="16:00">16:00</option>
+                <option value="17:00">17:00</option>
+                <option value="18:00">18:00</option>
+                <option value="19:00">19:00</option>
+                <option value="20:00">20:00</option>
+                <option value="21:00">21:00</option>
+              </select>
+            </div>
+          </div>
+          <div class="form-group">
+            <label for="comment">Пожелания</label>
+            <textarea id="comment" placeholder="Особые пожелания, аллергии, повод..."></textarea>
+          </div>
+          <button type="submit" class="btn-primary full-width">Забронировать стол</button>
+        </form>
+      </div>
+    </div>
+  </div>
+</section>
+
+<!-- FOOTER -->
+<footer>
+  <div class="container footer-inner">
+    <div class="footer-brand">
+      <span class="logo-icon">❄</span>
+      <span class="logo-text">Норд</span>
+      <p>Кофейня с атмосферой севера.<br>Саранск, Транспортная ул., 11</p>
+    </div>
+    <div class="footer-links">
+      <a href="#home">Главная</a>
+      <a href="#menu">Меню</a>
+      <a href="#about">О нас</a>
+      <a href="#contacts">Контакты</a>
+      <a href="admin.html" id="admin-link">Администрация</a>
+    </div>
+    <div class="footer-contacts">
+      <p><i class="fas fa-phone"></i> +7 (927) 000-00-00</p>
+      <p><i class="fas fa-envelope"></i> nord.coffee@mail.ru</p>
+      <p><i class="fas fa-clock"></i> Пн–Пт 8:00–22:00</p>
+    </div>
+  </div>
+  <div class="footer-bottom">
+    <p>© 2026 Кофейня «Норд». Все права защищены.</p>
+  </div>
+</footer>
+
+<!-- NOTIFICATION -->
+<div class="toast" id="toast"></div>
+
+<script src="script.js"></script>
+</body>
+</html>
