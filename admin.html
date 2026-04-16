@@ -1,0 +1,213 @@
+<!DOCTYPE html>
+<html lang="ru">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Админ-панель — Норд</title>
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@600&family=Inter:wght@300;400;500;600&display=swap" rel="stylesheet">
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <link rel="stylesheet" href="admin.css">
+</head>
+<body>
+
+<!-- LOGIN -->
+<div class="login-screen" id="loginScreen">
+  <div class="login-card">
+    <div class="login-logo">
+      <span class="logo-gem">❄</span>
+      <span class="logo-name">Норд</span>
+    </div>
+    <h2>Вход в панель</h2>
+    <p class="login-sub">Введите данные для доступа к управлению</p>
+    <form id="loginForm">
+      <div class="field">
+        <label>Логин</label>
+        <div class="input-wrap">
+          <i class="fas fa-user"></i>
+          <input type="text" id="username" value="admin" placeholder="admin">
+        </div>
+      </div>
+      <div class="field">
+        <label>Пароль</label>
+        <div class="input-wrap">
+          <i class="fas fa-lock"></i>
+          <input type="password" id="password" placeholder="Введите пароль" required>
+        </div>
+      </div>
+      <div class="login-error" id="loginError" style="display:none">
+        <i class="fas fa-exclamation-circle"></i> Неверный логин или пароль
+      </div>
+      <button type="submit" class="btn-login" id="loginBtn">Войти</button>
+    </form>
+  </div>
+</div>
+
+<!-- ADMIN -->
+<div class="admin-layout" id="adminPanel" style="display:none">
+
+  <!-- SIDEBAR -->
+  <aside class="sidebar" id="sidebar">
+    <div class="sidebar-logo">
+      <span class="logo-gem">❄</span>
+      <span class="logo-name">Норд</span>
+    </div>
+    <nav class="sidebar-nav">
+      <button class="nav-item active" data-tab="reservations">
+        <i class="fas fa-calendar-check"></i>
+        <span class="nav-label">Брони</span>
+        <span class="nav-badge" id="navBadge" style="display:none">0</span>
+      </button>
+      <button class="nav-item" data-tab="guests">
+        <i class="fas fa-users"></i>
+        <span class="nav-label">Гости</span>
+      </button>
+    </nav>
+    <div class="sidebar-footer">
+      <a href="index.html" target="_blank" class="sidebar-link">
+        <i class="fas fa-external-link-alt"></i>
+        <span class="link-label">Открыть сайт</span>
+      </a>
+      <button class="sidebar-link logout-btn" id="logoutBtn">
+        <i class="fas fa-sign-out-alt"></i>
+        <span class="link-label">Выйти</span>
+      </button>
+    </div>
+  </aside>
+
+  <!-- MAIN -->
+  <main class="admin-main" id="adminMain">
+
+    <!-- TOPBAR -->
+    <div class="topbar">
+      <button class="burger-admin" id="burgerAdmin" title="Свернуть панель">
+        <i class="fas fa-bars"></i>
+      </button>
+      <h1 class="page-title" id="pageTitle">Брони столов</h1>
+      <div class="topbar-right">
+        <button class="icon-btn" id="refreshBtn" title="Обновить">
+          <i class="fas fa-sync-alt"></i>
+        </button>
+        <div class="admin-user">
+          <i class="fas fa-user-circle"></i>
+          <span id="adminUsername">admin</span>
+        </div>
+      </div>
+    </div>
+
+    <!-- STATS -->
+    <div class="stats-row">
+      <div class="stat-card blue">
+        <div class="stat-top">
+          <div class="stat-icon blue"><i class="fas fa-calendar-check"></i></div>
+        </div>
+        <div>
+          <div class="stat-val" id="statTotal">—</div>
+          <div class="stat-label">Всего броней</div>
+        </div>
+      </div>
+      <div class="stat-card amber">
+        <div class="stat-top">
+          <div class="stat-icon amber"><i class="fas fa-clock"></i></div>
+        </div>
+        <div>
+          <div class="stat-val" id="statNew">—</div>
+          <div class="stat-label">Новых</div>
+        </div>
+      </div>
+      <div class="stat-card green">
+        <div class="stat-top">
+          <div class="stat-icon green"><i class="fas fa-users"></i></div>
+        </div>
+        <div>
+          <div class="stat-val" id="statGuests">—</div>
+          <div class="stat-label">Гостей</div>
+        </div>
+      </div>
+      <div class="stat-card violet">
+        <div class="stat-top">
+          <div class="stat-icon violet"><i class="fas fa-calendar-day"></i></div>
+        </div>
+        <div>
+          <div class="stat-val" id="statToday">—</div>
+          <div class="stat-label">Сегодня</div>
+        </div>
+      </div>
+    </div>
+
+    <!-- RESERVATIONS TAB -->
+    <div class="tab-pane active" id="tab-reservations">
+      <div class="table-toolbar">
+        <div class="filter-chips">
+          <button class="chip active" data-status="all">Все</button>
+          <button class="chip" data-status="new">Новые</button>
+          <button class="chip" data-status="confirmed">Подтверждены</button>
+          <button class="chip" data-status="completed">Завершены</button>
+          <button class="chip" data-status="cancelled">Отменены</button>
+        </div>
+        <div class="toolbar-right">
+          <div class="search-wrap">
+            <i class="fas fa-search"></i>
+            <input type="text" id="searchRes" placeholder="Поиск...">
+          </div>
+          <button class="btn-export" id="exportBtn">
+            <i class="fas fa-download"></i> CSV
+          </button>
+        </div>
+      </div>
+      <div class="cards-grid" id="resCards">
+        <div class="cards-empty">
+          <i class="fas fa-spinner fa-spin"></i>
+          Загрузка...
+        </div>
+      </div>
+    </div>
+
+    <!-- GUESTS TAB -->
+    <div class="tab-pane" id="tab-guests">
+      <div class="table-toolbar">
+        <div class="search-wrap">
+          <i class="fas fa-search"></i>
+          <input type="text" id="searchGuests" placeholder="Поиск по гостям...">
+        </div>
+      </div>
+      <div class="table-wrap">
+        <table class="data-table">
+          <thead>
+            <tr>
+              <th>ID</th>
+              <th>Имя</th>
+              <th>Телефон</th>
+              <th>Email</th>
+              <th>Визитов</th>
+              <th>Последний визит</th>
+            </tr>
+          </thead>
+          <tbody id="guestsBody">
+            <tr><td colspan="6" class="table-empty"><i class="fas fa-spinner fa-spin"></i> Загрузка...</td></tr>
+          </tbody>
+        </table>
+      </div>
+    </div>
+
+  </main>
+</div>
+
+<!-- RESERVATION MODAL -->
+<div class="modal-overlay" id="resModal" style="display:none">
+  <div class="modal-box">
+    <div class="modal-head">
+      <h3 id="modalResTitle">Бронь</h3>
+      <button class="modal-close" id="closeResModal"><i class="fas fa-times"></i></button>
+    </div>
+    <div class="modal-body" id="resModalBody"></div>
+  </div>
+</div>
+
+<!-- TOAST -->
+<div class="a-toast" id="adminToast"></div>
+
+<script src="admin.js"></script>
+</body>
+</html>
